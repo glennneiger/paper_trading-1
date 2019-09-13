@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190913024631) do
+ActiveRecord::Schema.define(version: 20190913050012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.string "type", null: false
+    t.integer "entry_price_cents", default: 0, null: false
+    t.string "entry_price_currency", default: "USD", null: false
+    t.integer "take_profit_cents", default: 0, null: false
+    t.string "take_profit_currency", default: "USD", null: false
+    t.integer "stop_loss_cents", default: 0, null: false
+    t.string "stop_loss_currency", default: "USD", null: false
+    t.integer "exit_price_cents", default: 0, null: false
+    t.string "exit_price_currency", default: "USD", null: false
+    t.integer "shares", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "ticker", null: false
+    t.string "company_name", null: false
+    t.string "listed_at", null: false
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -24,6 +50,7 @@ ActiveRecord::Schema.define(version: 20190913024631) do
     t.datetime "updated_at", null: false
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.integer "balance_cents"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end

@@ -10,12 +10,12 @@
 
   <body>
     <div id="container">
-      <%= link_to "PaperTrading app by screamuch", root_path %>
+      <%= link_to "PaperTrading app by screamuch", root_path %> |
       <% if current_user %>
         <%= current_user.username %>
         <%= link_to "Logout", logout_path %>
       <% else %>
-        <%= link_to "Sign up", signup_path %>
+        <%= link_to "Sign up", signup_path %> | 
         <%= link_to "Log in", login_path %>
       <% end %>
     </div>

@@ -5,4 +5,8 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
+
+  has_many :orders
+
+  monetize :balance_cents
 end

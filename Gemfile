@@ -35,6 +35,8 @@ gem 'sorcery'
 # bootstrap for dis uggly ass
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+# money to handle $$$
+gem 'money-rails', '~>1.12'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
