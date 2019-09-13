@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 # authorization
 gem 'sorcery'
+# bootstrap for dis uggly ass
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

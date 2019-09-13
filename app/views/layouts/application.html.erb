@@ -10,7 +10,7 @@
 
   <body>
     <div id="container">
-      <h2>PaperTrading app by screamuch</h2>
+      <%= link_to "PaperTrading app by screamuch", root_path %>
       <% if current_user %>
         <%= current_user.username %>
         <%= link_to "Logout", logout_path %>
