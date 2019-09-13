@@ -10,6 +10,7 @@
 
   <body>
     <div id="container">
+      <h2>PaperTrading app by screamuch</h2>
       <% if current_user %>
         <%= current_user.username %>
         <%= link_to "Logout", logout_path %>
@@ -24,7 +25,7 @@
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
     </div>
-    
+
     <%= yield %>
   </body>
 </html>
