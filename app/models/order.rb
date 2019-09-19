@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
 
-  enum type:    [:market, :limit]
+  enum type:    [:market_order, :limit_order]
   enum status:  [:queued, :executed, :complete]
 
   monetize :entry_price_cents

@@ -1,0 +1,39 @@
+<%= form_for @order, url: orders_new_path, html: { method: :post } do |f| %>
+  <% if @order.errors.any? %>
+    <div class="errors">
+      <h2>Order didn't go through</h2>
+      <ul>
+        <% for message in @order.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ticker %>
+    <%= f.text_field :ticker %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select :type, [['market order', 0], ['limit order', 1]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :entry_price %>
+    <%= f.text_field :entry_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :take_profit %>
+    <%= f.text_field :take_profit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stop_loss %>
+    <%= f.text_field :stop_loss %>
+  </div>
+
+  <div class="actions"><%= f.submit %></div>
+<% end %>

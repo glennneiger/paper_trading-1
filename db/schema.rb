@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190913050012) do
+ActiveRecord::Schema.define(version: 20190919073933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.string "symbol", null: false
+    t.string "ticker", null: false
     t.string "type", null: false
     t.integer "entry_price_cents", default: 0, null: false
     t.string "entry_price_currency", default: "USD", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20190913050012) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
