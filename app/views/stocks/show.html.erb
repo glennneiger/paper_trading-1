@@ -1,0 +1,15 @@
+<h2><a href="https://twitter.com/search?q=%24<%= @stock.ticker %>&src=ctag" target="_blank">$<%= @stock.ticker %></a></h2>
+<h3>$<%= @stock.close %></h3>
+<% if @stock.change.to_f > 0.0 %>
+  <h5>+$<%= @stock.change %></h5>
+  <h5>+<%= @stock.change_percent %></h5>
+<% else %>
+  <h5>+$<%= @stock.change %></h5>
+  <h5>+<%= @stock.change_percent %></h5>
+<% end %>
+
+# link_to new order
+
+# open orders list for user
+
+# order history list for user
