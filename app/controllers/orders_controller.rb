@@ -2,12 +2,19 @@ class OrdersController < ApplicationController
   before_action :require_login
 
   def new
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.user = current_user
   end
 
   def create
-    @order = Order.create(order_params)
+    @order = Order.new(order_params)
+    @order.user = current_user
+    if @order.save
+      redirect_to orders_path, notice: "Order created successfuly"
+    else
+      flash.now.alert = "Unknown error"
+      render :new
+    end
   end
 
   def show
@@ -23,10 +30,11 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:ticker,
-                                  :type,
+                                  :order_type,
                                   :entry_price,
                                   :take_profit,
-                                  :stop_loss
+                                  :stop_loss,
+                                  :shares
                                 )
   end
 end

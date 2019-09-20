@@ -1,4 +1,4 @@
-<%= form_for @order, url: orders_new_path, html: { method: :post } do |f| %>
+<%= form_for @order, url: orders_create_path, html: { method: :post } do |f| %>
   <% if @order.errors.any? %>
     <div class="errors">
       <h2>Order didn't go through</h2>
@@ -16,8 +16,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :type %>
-    <%= f.select :type, [['market order', 0], ['limit order', 1]] %>
+    <%= f.label :order_type %>
+    <%= f.select :order_type, [['limit order', "limit_order"]] %>
   </div>
 
   <div class="field">
@@ -27,12 +27,17 @@
 
   <div class="field">
     <%= f.label :take_profit %>
-    <%= f.text_field :take_profit %>
+    <%= f.text_field :take_profit, value: 0.0 %>
   </div>
 
   <div class="field">
     <%= f.label :stop_loss %>
-    <%= f.text_field :stop_loss %>
+    <%= f.text_field :stop_loss, value: 0.0 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shares %>
+    <%= number_field(:order, :shares, step: 1) %>
   </div>
 
   <div class="actions"><%= f.submit %></div>

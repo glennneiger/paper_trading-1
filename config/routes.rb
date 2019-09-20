@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get 'stock/:id', to: "stocks#show"
 
   get 'orders/new'
-  get 'orders/new/:ticker', to: "orders#new"
-  get 'orders/show'
+  post 'orders/create'
+  get 'orders', to: "orders#show"
   get 'orders/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
