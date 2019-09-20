@@ -4,8 +4,8 @@
   <h5>+$<%= @stock.change %></h5>
   <h5>+<%= @stock.change_percent %></h5>
 <% else %>
-  <h5>+$<%= @stock.change %></h5>
-  <h5>+<%= @stock.change_percent %></h5>
+  <h5>-$<%= @stock.change.to_f.magnitude %></h5>
+  <h5><%= @stock.change_percent %></h5>
 <% end %>
 
 # link_to new order

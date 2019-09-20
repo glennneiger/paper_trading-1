@@ -5,9 +5,9 @@ class Stock < ApplicationRecord
 
   after_find do |stock|
     stock_quote = ALPHA_VANTAGE.search(keywords: stock.ticker).stocks[0].stock.quote
-    stock.open = stock_quote.open
-    stock.close = stock_quote.price
-    stock.change = stock_quote.change
+    stock.open = stock_quote.open.to_f
+    stock.close = stock_quote.price.to_f
+    stock.change = stock_quote.change.to_f
     stock.change_percent = stock_quote.change_percent
   end
 
